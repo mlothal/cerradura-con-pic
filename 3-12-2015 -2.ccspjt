@@ -1,0 +1,23 @@
+[PROJECT]
+Target=3-12-2015 -2.hex
+Processor_Text=PIC16F877
+CCSVersion=5.010
+Compiler=PCM
+[Target Data]
+FileList=3-12-2015 -2.c
+[Directories]
+Include=C:\Program Files (x86)\PICC\Devices\;C:\Program Files (x86)\PICC\Drivers\
+[3-12-2015 -2.c]
+Type=4
+[mru-list]
+1=3-12-2015 -2.c
+[Opened Files]
+1=3-12-2015 -2.c
+2=..\control domotico\main.c
+3=..\proyecto final\main.c
+4=
+5=..\..\..\SENSOR TEMPERATURA_teclado y lcd\SENSOR TEMPERATURA_teclado y lcd\sensor_temperatura_teclado_lcd.c
+6=
+[Units]
+Count=1
+1=3-12-2015 -2 (main)

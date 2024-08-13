@@ -1,0 +1,72 @@
+
+ROM used:   1744/8192 (21%)
+            1744/8192 (21%) including unused fragments
+
+            1.3 Average locations per line
+            8.7 Average locations per statement
+
+RAM used:   40/368 (11%) at main() level
+            70/368 (19%) worst case
+
+Stack used: 7 worst case (5 in main + 2 for interrupts)
+Stack size: 8
+
+Lines Stmts  %   Files
+----- ----- ---  -----
+  222   116  58  3-12-2015 -2.c
+  629     0   0  ..\..\..\..\..\..\Program Files (x86)\PICC\Devices\16F877.h
+  456    84  42  ..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\lcd.c
+----- -----
+ 1307   200 Total
+
+Page ROM  %  RAM   Vol Diff  Functions:
+---- --- --- ---   --- ----  ----------
+0     21   1    1             @delay_ms1
+0      8   0    0             @const622
+ Inline         3   596  5.9  lcd_read_byte
+0      6   0    0    59  4.2  lcd_read_nibble
+0     12   1    1   179  3.3  lcd_send_nibble
+0     64   4    3   460  4.7  lcd_send_byte
+0     69   4    2   667  5.9  lcd_init
+0     18   1    4   208  6.3  lcd_gotoxy
+0     50   3    1   354  4.7  lcd_putc
+0    298  17    2  2651  5.4  RB_isr
+0     21   1    5             @MUL1616
+0    282  16   13  1308  6.7  MAIN
+0      9   1    0             @const673
+0     86   5    4             @PSTRINGC7_640
+0      8   0    0             @const675
+0     89   5    5             @PSTRINGCN7_640
+0    101   6    9             @PRINTF_LU_640
+0     29   2    2             @ITOF
+0    117   7   13             @MULFF
+0      7   0    0             @const685
+ Inline         5             @FTOSD
+0     79   5   13             @DIV3232
+0    226  13   13             @PRINTF_L32D_640FPFPF
+0     65   4   10             @FLT
+ Inline         0             @cinit1
+
+Program metrics:
+    Functions               9
+    Statements              200
+    Comments                248
+    Volume (V)              9275
+    Difficulty (D)          43.5
+    Effort to implement (E) 403478
+    Time to implement (T)   6 hours, 14 minutes
+    Est Delivered Bugs (B)  2
+    Cyclomatic Complexity   41
+    Maintainability (MI)    132
+
+ Segment     Used  Free
+-----------  ----  ----
+00000-00003     4  0  
+00004-0004E    75  0  
+0004F-007FF  1665  304  
+00800-00FFF     0  2048  
+01000-017FF     0  2048  
+01800-01FFF     0  2048  
+
+
+

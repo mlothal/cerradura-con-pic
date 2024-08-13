@@ -1,0 +1,120 @@
+#include <16F877.h>
+#device adc=10
+#fuses XT,NOWDT,NOPROTECT,NOLVP
+#use delay(clock=4M)
+#define use_portb_kbd TRUE
+#define LCD_DATA_PORT getenv("SFR:PORTC")
+#byte TRISD=0x88
+#byte PORTD=0x08
+#include <lcd.c>
+#include <kbd.c>
+
+
+void main()
+{ 
+   bit_clear(TRISD,0);
+   bit_clear(PORTD,0);
+   int a=1;
+   int r=1;
+   char h;
+   char k;
+   char z;
+   char l;
+   float temper,medicion;
+   lcd_init();
+   kbd_init();
+   port_b_pullups(TRUE);
+   setup_adc (adc_clock_internal);
+   set_adc_channel (0); 
+   
+   
+   lcd_putc("\f Temperatura\n actual");
+
+   
+ 
+   while (TRUE) {
+   
+     if (a==1) 
+          {
+          k=kbd_getc();
+     if(k!=0) 
+          {
+     if(k=='*')
+          {
+          lcd_putc("\f");
+          lcd_gotoxy(1,1);
+          lcd_putc("\f CONFIGURE TEMP \n MAXIMA");
+          lcd_gotoxy(9,2);
+          a=2;
+     }
+     else{
+   lcd_gotoxy(8,2);
+   lcd_putc(temper);
+   delay_ms(20);
+   medicion=read_adc ();       
+   temper=medicion*(0.48875);   
+   printf(lcd_putc,"%.2f 'C",temper);
+     }}
+     }
+     if (a==2) 
+          {
+          h=kbd_getc();
+     if(h!=0)
+          {
+     if(h=='1')
+          {
+     if(a==1)
+          {
+          lcd_putc(h);
+          a=3;
+       }
+       }
+     if(h!='1')
+          {
+          lcd_putc(h);
+          a=3;            
+     }}}
+     if (a==3) 
+          {
+          z=kbd_getc();
+     if(z!=0)
+          {
+     if(z=='2')
+          {
+     if(a==3)
+          {
+          lcd_putc(z);
+          z=(h*10)+z;
+          a=4;
+       }
+       }
+     if(z!='2')
+          {
+          lcd_putc(z);
+          z=(h*10)+z;
+          a=4;              
+    }}}
+    if(a==4)
+          {
+          l=kbd_getc();     
+    if(l!=0)
+          {
+    if(l=='*')
+          {
+    if(a==4)
+          {
+          lcd_putc("'C");
+          delay_ms(500);
+          lcd_putc("\f TEMP MAXIMA \n CONFIGURADA");
+     if (z>= "temper"){
+          bit_set(PORTD,0);}
+          else{
+     
+          bit_clear(PORTD,0);
+          a=1;
+          r=1;}
+           lcd_putc("\f Temperatura\n actual");
+           lcd_gotoxy(9,2);
+           printf(lcd_putc,"%.2f'C",temper);
+}}}
+          }}}
